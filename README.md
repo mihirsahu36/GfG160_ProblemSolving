@@ -1,1 +1,4 @@
-# GfG160_ProblemSolving
+# GfG160 
+## Daily DSA Problem Solving
+
+![GfG160](gfg160.png)
