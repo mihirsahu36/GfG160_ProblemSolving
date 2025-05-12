@@ -2,7 +2,7 @@
 You are given an integer n representing the number of rooms numbered from 0 to n - 1.
 Additionally, you are given a 2D integer array meetings[][] where meetings[i] = [starti, endi] 
 indicates that a meeting is scheduled during the half-closed time interval [starti, endi).
-All starti values are unique.
+All starti values are unique. 
 
 Meeting Allocation Rules:
 When a meeting starts, assign it to the available room with the smallest number.
