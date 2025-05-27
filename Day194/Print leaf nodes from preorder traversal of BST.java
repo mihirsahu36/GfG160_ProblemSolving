@@ -23,6 +23,7 @@ Constraints:
 1 ≤ preorder.size() ≤ 10^3
 1 ≤ preorder[i] ≤ 10^3*/
 
+// Approach 1
 class Solution {
     public ArrayList<Integer> leafNodes(int[] preorder) {
         // code here
@@ -49,6 +50,35 @@ class Solution {
             if(isLeaf){
                 res.add(preorder[i]);
             }
+        }
+        
+        res.add(preorder[n-1]);
+        return res;
+    }
+}
+
+// Approach 2
+class Solution {
+    public ArrayList<Integer> leafNodes(int[] preorder) {
+        // code here
+        ArrayList<Integer> res = new ArrayList<>();
+        Stack<Integer> stack = new Stack<>();
+        int n = preorder.length;
+        
+        for(int i=0;i<n;i++){
+            int count = 0;
+            int curr = preorder[i];
+            
+            while(!stack.isEmpty() && curr > stack.peek()){
+                stack.pop();
+                count++;
+            }
+            
+            if(count >= 2){
+                res.add(preorder[i-1]);
+            }
+            
+            stack.push(curr);
         }
         
         res.add(preorder[n-1]);
