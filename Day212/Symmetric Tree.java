@@ -1,0 +1,58 @@
+/*Symmetric Tree
+Given the root of a binary tree, check whether it is symmetric, i.e., whether the tree is a mirror image of itself.
+A binary tree is symmetric if the left subtree is a mirror reflection of the right subtree.
+
+Examples:
+
+Input: root[] = [1, 2, 2, 3, 4, 4, 3]
+Output: True
+Explanation: As the left and right half of the above tree is mirror image, tree is symmetric.
+
+Input: root[] = [1, 2, 2, N, 3, N, 3]
+Output: False
+Explanation:  As the left and right half of the above tree is not the mirror image, tree is not symmetric. 
+
+Constraints:
+
+1  ≤ number of nodes ≤ 2000 */
+
+class Node{
+    int data;
+    Node left;
+    Node right;
+    Node(int data){
+        this.data = data;
+        left=null;
+        right=null;
+    }
+}
+
+*/
+class Solution {
+    private boolean isMirror(Node leftSub, Node rightSub){
+        if(leftSub == null && rightSub == null){
+            return true;
+        }
+        
+        if(leftSub == null || rightSub == null){
+            return false;
+        }
+        
+        if((leftSub.data == rightSub.data) &&
+        isMirror(leftSub.left, rightSub.right) &&
+        isMirror(leftSub.right, rightSub.left)){
+            return true;
+        }
+        
+        return false;
+    }
+    
+    public boolean isSymmetric(Node root) {
+        // Code here
+        if(root == null){
+            return false;
+        }
+        
+        return isMirror(root.left, root.right);
+    }
+}
