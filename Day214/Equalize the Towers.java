@@ -23,6 +23,8 @@ Constraints:
 1 ≤ heights[i] ≤ 10^4
 1 ≤ cost[i] ≤ 10^3 */
 
+
+// Approach 1
 class Solution {
     private int findCost(int []heights, int []cost, int targetHeight){
         int totalCost = 0;
@@ -59,5 +61,42 @@ class Solution {
         }
         
         return res;
+    }
+}
+
+// Approach 2
+class Solution {
+    private long findCost(int []heights, int []cost, int targetHeight){
+        long totalCost = 0;
+        
+        for(int i=0;i<heights.length;i++){
+            totalCost += (long)Math.abs(heights[i] - targetHeight) * cost[i];
+        }
+        
+        return totalCost;
+    }
+    
+    public int minCost(int[] heights, int[] cost) {
+        // code here
+        int low = Arrays.stream(heights).min().getAsInt();
+        int high = Arrays.stream(heights).max().getAsInt();
+        long res = Long.MAX_VALUE;
+        
+        while(low <= high){
+            int mid = low + (high - low) / 2;
+            
+            long costMid = findCost(heights, cost, mid);
+            long costMidP1 = findCost(heights, cost, mid + 1);
+            
+            res = Math.min(res, Math.min(costMid, costMidP1));
+            
+            if(costMid < costMidP1){
+                high = mid - 1;
+            }else{
+                low = mid + 1;
+            }
+        }
+        
+        return (int)res;
     }
 }
