@@ -35,13 +35,13 @@ class Solution {
             map.put(arr[j], map.getOrDefault(arr[j], 0) + 1);
             
             if(map.get(arr[j]) == 1){
-                k -= 1;
+                k--;
             }
             
             while(k < 0){
                 map.put(arr[i], map.get(arr[i]) - 1);
                 if(map.get(arr[i]) == 0){
-                    k += 1;
+                    k++;
                 }
                 i++;
             }
@@ -52,3 +52,4 @@ class Solution {
         return res;
     }
 }
+
