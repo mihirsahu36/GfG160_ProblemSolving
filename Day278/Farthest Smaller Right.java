@@ -26,7 +26,7 @@ class Solution {
     public ArrayList<Integer> farMin(int[] arr) {
         // Code Here
         int n = arr.length;
-        ArrayList<Integer> ans = new ArrayList<>();
+        ArrayList<Integer> ans = new ArrayList<>(n);
         for(int i=0;i<n;i++){
             ans.add(-1);
         }
