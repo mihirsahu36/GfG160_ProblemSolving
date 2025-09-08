@@ -3,11 +3,11 @@ You are given the head of a linked list. You have to sort the given linked list 
 
 Examples:
 
-Input:   
+Input: 40 -> 20 -> 60 -> 10 -> 50 -> 30
 Output: 10 -> 20 -> 30 -> 40 -> 50 -> 60
 Explanation: After sorting the given linked list, the resultant list will be:
     
-Input:
+Input: 9 -> 5 -> 2 -> 8
 Output: 2 -> 5 -> 8 -> 9
 Explanation: After sorting the given linked list, the resultant list will be:
     
