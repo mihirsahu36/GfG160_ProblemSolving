@@ -42,18 +42,18 @@ class Solution {
         
         for(int i=0;i<n;i++){
             maxReach = Math.max(maxReach, i + arr[i]);
-        }
         
-        if(maxReach >= n - 1){
-            return jump + 1;
-        }
-        
-        if(i == currReach){
-            if(i == maxReach){
-                return -1;
-            }else{
-                jump++;
-                currReach = maxReach;
+            if(maxReach >= n - 1){
+                return jump + 1;
+            }
+            
+            if(i == currReach){
+                if(i == maxReach){
+                    return -1;
+                }else{
+                    jump++;
+                    currReach = maxReach;
+                }
             }
         }
         
