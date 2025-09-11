@@ -36,24 +36,23 @@ class Solution {
             return -1;
         }
         
-        int maxReach = 0;
-        int currReach = 0;
-        int jump = 0;
+        int maxReach = arr[0];
+        int currReach = arr[0];
+        int jumps = 1;
         
-        for(int i=0;i<n;i++){
-            maxReach = Math.max(maxReach, i + arr[i]);
-        
-            if(maxReach >= n - 1){
-                return jump + 1;
+        for(int i=1;i<n;i++){
+            if(i == n - 1){
+                return jumps;
             }
             
+            maxReach = Math.max(maxReach, i + arr[i]);
+            
             if(i == currReach){
-                if(i == maxReach){
+                jumps++;
+                if(i >= maxReach){
                     return -1;
-                }else{
-                    jump++;
-                    currReach = maxReach;
                 }
+                currReach = maxReach;
             }
         }
         
