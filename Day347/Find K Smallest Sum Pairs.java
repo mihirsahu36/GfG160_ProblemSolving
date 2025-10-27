@@ -41,7 +41,7 @@ class Solution {
         HashSet<String> visited = new HashSet<>();
         
         pq.offer(new int[]{arr1[0] + arr2[0], 0, 0});
-        visited.add("0, 0");
+        visited.add("0,0");
         
         while(k > 0 && !pq.isEmpty()){
             int []temp = pq.poll();
