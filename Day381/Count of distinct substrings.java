@@ -1,0 +1,58 @@
+/* Count of distinct substrings
+Given a string s consisting of lowercase English characters,
+determine the total number of distinct non-empty substrings present in the string.
+A substring is defined as a contiguous block of characters within the string.
+Two substrings are considered distinct if their contents differ,
+even if they originate from different positions in the string.
+Note: The empty substring is not counted.
+
+Examples :
+
+Input: s = "ababa"
+Output: 9
+Explanation: All distinct substrings of "ababa" are:
+"a", "b", "ab", "ba", "aba", "bab", "abab", "baba", "ababa".
+
+Input: s = "aaa"
+Output: 3
+Explanation: The distinct substrings of "aaa" are: "a", "aa", "aaa".
+Constraints:
+
+1 ≤ s.size() ≤ 3000 */
+
+class TrieNode{
+    boolean isWord;
+    TrieNode []child;
+
+    TrieNode(){
+        isWord = false;
+        child = new TrieNode[26];
+        for(int i=0;i<26;i++){
+            child[i] = null;
+        }
+    }
+}
+
+class Solution {
+    public static int countSubs(String s) {
+        // code here
+        TrieNode head = new TrieNode();
+        int count = 0;
+
+        for(int i=0;i<s.length();i++){
+            TrieNode temp = head;
+            for(int j=i;j<s.length();j++){
+                int index = s.charAt(j) - 'a'; 
+                if(temp.child[index] == null){
+                    temp.child[index] = new TrieNode();
+                    temp.isWord = true;
+                    count++;
+                }
+                
+                temp = temp.child[index];
+            }
+        }
+
+        return count;
+    }
+}
